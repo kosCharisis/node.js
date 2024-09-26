@@ -27,7 +27,7 @@ exports.create = async(req, res) => {
     const username = req.body.username;
     const products = req.body.products;
 
-    conole.log("Insert products to user", username);
+    console.log("Insert products to user", username);
 
     try {
         const result = await User.updateOne(
