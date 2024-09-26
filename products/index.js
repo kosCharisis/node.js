@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGODB_URI)
 const user = require('./routes/user.routes');
 const userProduct = require('./routes/user.product.routes');
 
-app.use('/api/user', user);
+app.use('/api/users', user);
 //app.use('/api/product', product);
 app.use('/api/user.product', userProduct )
 
