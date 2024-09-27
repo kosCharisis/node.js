@@ -46,7 +46,7 @@ exports.insertUserProduct = async(req, res) => {
 
 exports.updateUserProduct = async (req, res) => {
     const username = req.params.username;
-    const product_id = req.body.product._id;
+    const product_id = req.params.id;
     const product_quantity = req.body.product.quantity;
 
     console.log("Update product quantity for user", username);
@@ -60,10 +60,10 @@ exports.updateUserProduct = async (req, res) => {
             }
         }
     )
+
         res.json({status: true, data:result});     
     } catch (err) {
         res.json({status: false, data:err});
-
     }
 }
 
@@ -85,5 +85,82 @@ exports.deleteUserProduct = async(req,res) => {
         res.json({status:true, data: result})
     } catch (err) {
         res.json({status: false, data: err})
+    }
+}
+
+exports.stats1 = async(req, res) => {
+    console.log("For all users sum by product and count");
+
+    try {
+        const result = await User.aggregate([
+            {
+                $unwind: "$products"
+            },
+            {
+                $project: {
+                    _id:1, username:1, products:1
+                }
+            },
+            {
+                $group: {
+                    _id: {
+                        username: "$username",
+                        product: "$products.product"
+                    },
+                    totalAmount: {
+                        $sum: {
+                            $multiply: ["$products.cost", "$products.quantity"]
+                        }
+                    },
+                    count: {$sum: 1}
+                }
+            },
+            {
+                $sort: {"_id.username":1, "_id.product":1 }
+            }
+        ])
+        res.json({status:true, data: result})
+    } catch (err) {
+        res.json({status:false, data: err})
+    }
+}
+
+exports.stats2 = async(req,res) => {
+    const username = req.params.username;
+
+    console.log("Stats2");
+
+    try {
+        const result = await User.aggregate ([
+            {
+                $match: {
+                    username: username
+                }
+            },
+            {
+                $unwind: "$products"
+            },
+            {
+                $project: {
+                    _id:0,
+                    products:1
+                }
+            },
+            {
+                $group: {
+                    _id: { product: "$products.product"},
+                    totalAmount: {
+                        $sum: {
+                            $multiply: ["$products.cost", "$products.quantity"]
+                        }
+                    },
+                    count: { $sum: 1}
+                }
+            }
+        ])
+
+        res.json({ status:true, data: result})
+    } catch (err) {
+        res.json({ status:false, data: err})
     }
 }
