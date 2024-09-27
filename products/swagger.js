@@ -164,7 +164,7 @@ exports.options = {
                 "responses":{
                     "200":{
                         "description": "Update user",
-                        "Schema": {
+                        "schema": {
                             "$ref":"#/compontes/schema/User"
                         }
                     }
@@ -208,7 +208,7 @@ exports.options = {
                         "name":"username",
                         "in":"path",
                         "required":true,
-                        "description":"Usernaem of user to find products",
+                        "description":"Username of user to find products",
                         "type":"string"
                     }
                 ],
@@ -258,7 +258,7 @@ exports.options = {
             },
             "responses":{
                 "200":{
-                    "description":"New products"
+                    "description":"New products to user"
                     }
                 }
             }
