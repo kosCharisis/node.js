@@ -24,7 +24,7 @@ exports.findUserProducts = async(req, res) => {
 }
 
 exports.insertUserProduct = async(req, res) => {
-    const username = req.body.username;
+    const username = req.params.username;
     const products = req.body.products;
 
     console.log("Insert products to user", username);

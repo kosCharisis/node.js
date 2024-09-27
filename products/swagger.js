@@ -238,7 +238,7 @@ exports.options = {
                             "schema":{
                             "type":"object",
                             "properties":{
-                                "username":{"type":"string"},
+                                // "username":{"type":"string"},
                                 "products":{
                                     "type":"array",
                                     "items":{
