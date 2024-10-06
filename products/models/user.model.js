@@ -56,7 +56,7 @@ let userSchema = new Schema({
       "Email address is not valid",
         ],
     },
-    adress: addressSchema, 
+    address: addressSchema, 
     phone: { type: [phoneSchema], null: true },
     products: { type: [productSchema], null:true}
 },
