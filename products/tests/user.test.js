@@ -72,7 +72,7 @@ describe("Tests for /api/users/{username} requests", () => {
     })
 
     it("PATCH for /api/users/{username}", async() =>{
-        const result = await helpers.findLastInsertedUser();
+        let result = await helpers.findLastInsertedUser();
         const res = await request(app)
             .patch('/api/users/' + result.username)
             .send({
@@ -85,6 +85,9 @@ describe("Tests for /api/users/{username} requests", () => {
                 }
             });
 
+        result = await helpers.findLastInsertedUser();  
+        console.log("1>>>>",res.body.data);
+        console.log("2>>>>",result);
         expect(res.statusCode).toBe(200),
         expect(res.body.status).toBeTruthy;
         expect(res.body.data.name).toBe("new test4");

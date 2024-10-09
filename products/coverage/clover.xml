@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1728230208289" clover="3.2.0">
-  <project timestamp="1728230208289" name="All files">
+<coverage generated="1728231521924" clover="3.2.0">
+  <project timestamp="1728231521925" name="All files">
     <metrics statements="147" coveredstatements="97" conditionals="0" coveredconditionals="0" methods="15" coveredmethods="7" elements="162" coveredelements="104" complexity="0" loc="147" ncloc="147" packages="5" files="8" classes="8"/>
     <package name="products">
       <metrics statements="23" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
@@ -180,10 +180,10 @@
       <file name="user.service.js" path="C:\Users\θσερ\Desktop\coding\webdev-aueb-course\node1\products\services\user.service.js">
         <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
       </file>
