@@ -5,7 +5,7 @@ FROM node:20
 WORKDIR /app
 
 # Install app dependencies
-COPY package*json ./
+COPY package*.json ./
 RUN npm install 
 
 # Bundle app source

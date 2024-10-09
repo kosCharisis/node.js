@@ -76,7 +76,7 @@ describe("Tests for /api/user-product/{username}/products/{id}", () =>{
                 }
             })
         result = await helpers.findLastInsertedUser()
-        // console.log(result);
+        console.log(result);
         expect(res.statusCode).toBe(200);
         expect(result.products[0].quantity).toBe(180);
     });
