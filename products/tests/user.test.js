@@ -85,9 +85,9 @@ describe("Tests for /api/users/{username} requests", () => {
                 }
             });
 
-        result = await helpers.findLastInsertedUser();  
-        console.log("1>>>>",res.body.data);
-        console.log("2>>>>",result);
+        // result = await helpers.findLastInsertedUser();  
+        // console.log("1>>>>",res.body.data);
+        // console.log("2>>>>",result);
         expect(res.statusCode).toBe(200),
         expect(res.body.status).toBeTruthy;
         expect(res.body.data.name).toBe("new test4");
